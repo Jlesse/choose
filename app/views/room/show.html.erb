@@ -1,0 +1,7 @@
+<h1><%= @room.name %></h1>
+<div id="<%= @room.id %>" class="room"></div>
+<% @room.children.each do |child|%>
+  <%= link_to "#{child.name}", room_path(child) %>
+<% end %>
+
+
