@@ -1,6 +1,5 @@
 class RoomController < ApplicationController
-  # Prevent CSRF attacks by raising an exception.
-  # For APIs, you may want to use :null_session instead.
+  layout :room_layout
 
   def index
     @room = Room.find(1)
@@ -9,5 +8,15 @@ class RoomController < ApplicationController
   def show
     @room = Room.find(params[:id])
     render 'show'
+  end
+
+  private
+
+  def room_layout
+    if @room.id == 1
+      "room_one"
+    else
+      "room_two"
+    end
   end
 end
